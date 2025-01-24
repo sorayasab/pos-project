@@ -85,7 +85,13 @@ function updateInvoice(invoices) {
     subtotalButtonElement.innerText = subtotal; 
 }
 
-function saveBill() {
+async function saveBill() {
+    try {
+        const doc = await generateInvoicePDF(); // Gunakan helper function
+        doc.save('invoice.pdf'); // Simpan file PDF
+    } catch (error) {
+        console.error('Error saving bill:', error);
+    }
     alert('Bill berhasil disimpan!');
 }
 
@@ -109,7 +115,7 @@ async function charge() {
     }
 }
 
-async function generatePDF() {
+async function generateInvoicePDF() {
     try {
         const response = await fetch('http://localhost:8080/api/invoices');
         const invoices = await response.json();
@@ -138,6 +144,16 @@ async function generatePDF() {
         yPosition += 10;
         doc.text(`Subtotal: Rp ${subtotal}`, 10, yPosition);
 
+        return doc; 
+    } catch (error) {
+        console.error('Error generating PDF:', error);
+        throw error;
+    }
+}
+
+async function printBill() {
+    try {
+        const doc = await generateInvoicePDF();
         const pdfBlob = doc.output('blob');
 
         const pdfURL = URL.createObjectURL(pdfBlob);
@@ -146,7 +162,7 @@ async function generatePDF() {
             printWindow.print();
         };
     } catch (error) {
-        console.error('Error generating PDF:', error);
+        console.error('Error generating PDF for print:', error);
     }
 }
 
