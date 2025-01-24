@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+.products {
+    width: 60%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+}
+
+.bill {
+    width: 40%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+}
+h3 {
+    margin-top: 0;
+    text-align: center;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s;
+}
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.product-name {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.bill-items {
+    margin-bottom: 20px;
+}
+.bill-items p {
+    margin: 5px 0;
+}
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.buttons button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.save-btn, .print-btn {
+    background-color: #bed1f7;
+    color: black;
+}
+.charge-btn {
+    background-color: #223186;
+    color: white;
+}
+.delete-btn {
+    color: rgb(176, 176, 176);
+    background-color: white;
+}
+.order-type-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-type select {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    background: none;
+    text-align: center;
+}

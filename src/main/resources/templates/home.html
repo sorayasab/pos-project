@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Point of Sales</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="products">
+            <div id="product-grid" class="product-grid">
+                <!-- Product filled by javascript -->
+            </div>
+        </div>
+
+        <div class="bill">
+            <h3>New Customer</h3>
+            <div class="order-type-container">
+                <div class="order-type">
+                    <select>
+                        <option value="dine-in">Dine In</option>
+                        <option value="take-away">Take Away</option>
+                    </select>
+                </div>
+            </div>            
+            <div id="invoice" class="bill-items">
+                <!-- Invoice filled by javascript -->
+            </div>
+            <div class="total">
+                <div>Sub-Total: Rp <span id="subtotal">0</span></div>
+                <div>Total: Rp <span id="total">0</span></div>
+            </div>
+            <div class="buttons">
+                <div>
+                    <button class="delete-btn" onclick="deleteAllInvoices()">Clear Sale</button>
+                </div>
+                <div>
+                    <button class="save-btn" onclick="saveBill()">Save Bill</button>
+                    <button class="print-btn" onclick="generatePDF()">Print Bill</button>
+                </div>
+                <div>
+                    <button class="charge-btn" onclick="charge()">Charge Rp<span id="subtotal-button">0</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
